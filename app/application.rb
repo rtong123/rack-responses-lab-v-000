@@ -1,0 +1,16 @@
+# if < 12pm puts "Good Morning"
+# if > 12pm puts "good afternoon "
+class Application
+
+  def call(env)
+    resp = Rack::Response.new
+
+    if Time.now.hour > 12
+      resp.write "Good afternoon"
+    else
+      resp.write "Good morning"
+    end
+  end
+
+    resp.finish
+  end
